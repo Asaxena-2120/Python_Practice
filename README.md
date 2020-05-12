@@ -5,7 +5,7 @@ This repo contains simple python codes.
 
 ### Warmups Codes
 
- * Simple python function to test if , True and False functionality
+ * Simple python function to test if , True and False functionality.
     
     _1._  sleep_in.py
     
