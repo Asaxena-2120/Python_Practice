@@ -15,4 +15,4 @@ def sleep_in(weekday, vacation):
     sleep_in(True, False) → False
     sleep_in(False, True) → True
   '''
-  return not weekday or vacation
+    return not weekday or vacation
