@@ -6,5 +6,7 @@ This repo contains simple python codes.
 ### Warmups Codes
 
  * Simple python function to test if , True and False functionality
-    1. sleep_in.py
-	2. monkey_trouble.py
+    
+    _1._  sleep_in.py
+    
+    _2._  monkey_trouble.py
