@@ -10,3 +10,10 @@ This repo contains simple python codes.
     _1._  sleep_in.py
     
     _2._  monkey_trouble.py
+
+### Maths Problems
+
+ * Factors
+ * prime Fators
+ * Prime factorization
+ * euclid's gcd algorithm
