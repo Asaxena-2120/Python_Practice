@@ -21,3 +21,7 @@ This repo contains simple python codes.
 ### Data Structures
 
  * Sorting Algorithms
+
+###w3resources problems
+  
+  * Basic Part I
