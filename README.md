@@ -17,3 +17,7 @@ This repo contains simple python codes.
  * prime Fators
  * Prime factorization
  * euclid's gcd algorithm
+
+### Data Structures
+
+ * Sorting Algorithms
