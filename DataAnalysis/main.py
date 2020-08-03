@@ -60,6 +60,11 @@ def main():
     print("\n")
     # ask user to select the country for which plot of emissions is required
     country= input("Select the country to visualize:")
+    plt.title('Year vs Emissions in capita') 
+    # naming of x-axis and y-axis 
+    plt.xlabel('Year') 
+    plt.ylabel('Emissions in '+country) 
+
     if country not in data_dict.keys():
         print("Data for country %s not found!" %(country))
         return 
@@ -76,7 +81,35 @@ def main():
        
     # function to show the plot 
     plt.show() 
+    
 
+    ##Compare two countries emission graphs
+     
+    
+    try:
+        country_one, country_two = [x for x in input("Write two comma-seperated countries for which  you want to visualize data:").split(',')] 
+        print("\nThe value of country_oneis {} and country_two  is {}".format(country_one, country_two)) 
+    except ValueError:
+        print("Incorrect Input entered, Please try again!!")
+        return
+    for k1,l1 in data_dict.items():
+        
+        if k1=='CO2 per capita':
+            #x axis of the plot as years 
+            x1=[int(y) for y in l1]
+        if k1==country_one:
+            #y axis of the plot as emissions data from a user-selected country
+            y1=[float(emission) for emission in l1]
+        if k1==country_two:
+            y2=[float(emission) for emission in l1]
+
+    plt.title('Year vs Emissions in capita') 
+    # naming of x-axis and y-axis        
+    plt.xlabel('Year') 
+    plt.ylabel('Emissions in '+country_one+" and "+country_two)     
+    plt.plot(x1,y1,label=country_one)
+    plt.plot(x1,y2,label=country_two)
+    plt.show()
 #driver code
 if __name__=='__main__':
-    main()
+    main() 
