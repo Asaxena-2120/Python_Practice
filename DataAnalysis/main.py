@@ -8,6 +8,7 @@ You will use this dictionary for the next three modules.
 Take input from the user 
 Calculate worldwide statistics (min, max, average) for a user-entered year
 Plot the emissions data from a user-selected country. 
+Plot a comparison graph based on user input.
 '''
 import csv
 from matplotlib import pyplot as plt 
