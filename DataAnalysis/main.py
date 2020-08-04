@@ -59,6 +59,7 @@ def main():
     
     print("In %s,countries with minimum and maximum CO2 emission levels were: %s and %s respectively. Average CO2 emissions in %s were %0.6f" %(input_year, min_value_countries,max_value_countries,input_year,average_value))  
     print("\n")
+    
     # ask user to select the country for which plot of emissions is required
     country= input("Select the country to visualize:")
     plt.title('Year vs Emissions in capita') 
@@ -66,14 +67,14 @@ def main():
     plt.xlabel('Year') 
     plt.ylabel('Emissions in '+country) 
 
-    if country not in data_dict.keys():
+    '''if country not in data_dict.keys():
         print("Data for country %s not found!" %(country))
-        return 
+        return '''
     for k,l in data_dict.items():
         if k=='CO2 per capita':
             #x axis of the plot as years 
             x=[int(y) for y in l]
-        if k==country:
+        if k.lower()==country.lower():
             #y axis of the plot as emissions data from a user-selected country
             y=[float(emission) for emission in l]
   
@@ -98,10 +99,10 @@ def main():
         if k1=='CO2 per capita':
             #x axis of the plot as years 
             x1=[int(y) for y in l1]
-        if k1==country_one:
+        if k1.lower()==country_one.lower():
             #y axis of the plot as emissions data from a user-selected country
             y1=[float(emission) for emission in l1]
-        if k1==country_two:
+        if k1.lower()==country_two.lower():
             y2=[float(emission) for emission in l1]
 
     plt.title('Year vs Emissions in capita') 
@@ -111,6 +112,41 @@ def main():
     plt.plot(x1,y1,label=country_one)
     plt.plot(x1,y2,label=country_two)
     plt.show()
+    
+    while True:
+        try:    
+            countries = [x for x in input("Write up to three comma-seperated countries for which you want to extract data:").split(',')] 
+
+        except ValueError:
+            print("Please enter again.")
+            continue
+        if len(countries)>3 or len(countries)<0:
+            print("ERR: Sorry, at most 3 countries can be entered")
+            continue
+        
+        else:
+            break
+    row_list=[]
+    for key, value in data_dict.items():
+        if key=='CO2 per capita':
+            
+            temp = [key]
+            for v in value:
+                temp.append(int(v))
+            row_list.append(temp)
+        if key.lower() == countries[0].lower() or key.lower() == countries[1].lower() or key.lower()== countries[2].lower():
+            temp = [key]
+            for v in value:
+                temp.append(float(v))
+            row_list.append(temp)   
+               
+   
+    with open('Emissions_subset.csv','w',newline='') as file:
+        writer = csv.writer(file,delimiter=',')
+        writer.writerows(row_list)
+        
+    print("Data successfully extracted for countries",countries[0], countries[1], countries[2])
+
 #driver code
 if __name__=='__main__':
     main() 
